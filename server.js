@@ -32,10 +32,12 @@ db.mongoose
 
 // simple route
 app.get("/", (req, res) => {
-  res.json({ message: "Welcome to bezkoder application." });
+  res.json({ message: "frosty doc server 0.0." });
 });
 
 require("./app/routes/turorial.routes")(app);
+require("./app/routes/posts.routes")(app);
+require("./app/routes/users.routes")(app);
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;

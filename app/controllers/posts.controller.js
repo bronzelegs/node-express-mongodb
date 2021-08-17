@@ -4,24 +4,50 @@ const Posts = db.posts;
 // Create and Save a new posts document
 exports.create = (req, res) => {
   // Validate request
-  if (!req.body.title) {
-    res.status(400).send({ message: "Content can not be empty!" });
-    return;
-  }
-
+  // if (!req.body.title) {
+  //  res.status(400).send({ message: "Content can not be empty!" });
+  //  return;
+  // }
+  //
   // Create a Posts
   const posts = new Posts({
+    //title: req.body.title
+    title: "This is a test post",
+    // title: req.body.title,
+    name: "this is the name of the post",
+    //name: req.body.name,
+    body: "this is the body",
+    // body: req.body.body,
+    author: "this is the author",
+    // author: req.body.author,
+    archived: false,
+    // archived: req.body.archived,
+    archivedDate: "",
+    // archiveDate: req.body.archivedate,
 
-    title: req.body.title,
-    name: req.body.name,
-    author: req.body.author,
-    created: req.body.created,
-    modified: req.body.modified,
-    archived: req.body.archived,
-    published: req.body.published ? req.body.published : false,
-    deleted: req.body.deleted ? req.body.deleted : false,
-    topics: "",
-    CommentHash: ""   // id of comment hash key
+    //comments: [{ body: "String", date: Date.now }],
+    hidden: false,
+    //req.body.hidden,
+    meta: {
+      votes: 0,
+      favs:  0
+    },
+    //meta: {
+    //  votes: req.body.voted,
+    //  favs: req.body.faves
+    //),
+    commentsHash: "hash",
+    //commentsHash: req.body.commentsHash,
+    published: false,
+    // published: req.body.published ? req.body.published : false,
+    publishedDate: "",
+    // publishDate: req.body.publishDate,
+    deleted: false,
+    // deleted: req.body.deleted ? req.body.deleted : false,
+    topics: {
+      key:"post", value: "native",
+      key: "article", value: "link"
+    }// topics: "",
   });
 
   // Save Posts in the database
