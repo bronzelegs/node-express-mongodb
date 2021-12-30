@@ -11,11 +11,10 @@ exports.create = (req, res) => {
   //
   // Create a Posts
   const posts = new Posts({
-    //title: req.body.title
-    title: "This is a test post",
-    // title: req.body.title,
-    name: "this is the name of the post",
-    //name: req.body.name,
+    //title: "This is a test post",
+    title: req.body.title,
+    //name: "this is the name of the post",
+    name: req.body.name,
     body: "this is the body",
     // body: req.body.body,
     author: "this is the author",
@@ -39,7 +38,7 @@ exports.create = (req, res) => {
     commentsHash: "hash",
     //commentsHash: req.body.commentsHash,
     published: false,
-    // published: req.body.published ? req.body.published : false,
+    //published: req.body.published ? req.body.published : false,
     publishedDate: "",
     // publishDate: req.body.publishDate,
     deleted: false,
